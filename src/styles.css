@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #f26a25;
+  --secondary-color: #474C55;
+  --tertiary-color: #777;
+}
+
+body {
+  font-size: .875rem;
+}
+
+main {
+  padding-top: 48px; /* Space for fixed navbar */
+}

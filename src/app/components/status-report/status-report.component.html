@@ -1,0 +1,58 @@
+<div class="custom-container">
+  <app-navbar></app-navbar>
+
+  <div class="container-fluid">
+    <div class="row">
+      <app-sidenav></app-sidenav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1>Staging Management System</h1>
+        </div>
+
+        <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+
+        <h2>Status Report</h2>
+        <div class="mb-2">
+          <app-button-toolbar></app-button-toolbar>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>
+                  <label class="checkbox-container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                </th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Attendance</th>
+                <th>Trainer Name</th>
+                <th>Staging Start</th>
+                <th># Interviews</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let associate of associates">
+                <td>
+                  <label class="checkbox-container">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                  </label>
+                </td>
+                <td><a routerLink="/associates/{{associate.id}}">{{associate.firstName}}</a></td>
+                <td>{{associate.lastName}}</td>
+                <td>{{associate.absent}}</td>
+                <td>{{associate.trainerName}}</td>
+                <td>{{associate.stagingStartDate}}</td>
+                <td>{{associate.numberInterviews}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
