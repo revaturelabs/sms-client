@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+- 8.9.4
+sudo: required
+dist: trusty
+before_script:
+- "sudo chown root /opt/google/chrome/chrome-sandbox"
+- "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
+addons:
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+install:
+- npm install
+script:
+- export CHROME_BIN=chromium-browser
+- xvfb-run -a npm run lint:ci
+- xvfb-run -a npm run test:ci
+- xvfb-run -a npm run prod
+# deploy:
+#   provider: elasticbeanstalk
+#   access_key_id: <access-key-id>
+#   secret_access_key:
+#     secure: "Encypted <secret-access-key>="
+#   region: "us-east-1"  
+#   app: "example-app-name"
+#   env: "example-app-environment"
+#   bucket_name: "the-target-S3-bucket"
+#   on:
+#     repo: revaturelabs/sms-client
+#     branch: develop
