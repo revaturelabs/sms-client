@@ -1,55 +1,68 @@
 <app-navbar></app-navbar>
 
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <app-sidenav></app-sidenav>
-
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1>Staging Management System</h1>
-      </div>
-
-      <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+    <main role="main" class="col-lg-12">
+      <h1>Staging Management System</h1>
+      <p>
+        Welcome to SMS! Please read our <a href="https://github.com/revaturelabs/sms-client/wiki">documentation</a> to get started
+      </p>
 
       <h2>Overview</h2>
       <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-      <div class="btn-group mb-2 ml-2">
-        <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#exampleModal">
+      <div class="mb-2 ml-2">
+        <button type="button" class="btn btn-sm btn-warning mr-2" data-toggle="modal" data-target="#exampleModal">
           Edit
         </button>
+        <button type="button" class="btn btn-sm btn-primary" (click)="toggleSlide()">
+          Upload Excel File
+        </button>
+      </div>
+      <div class="mb-2 ml-2" style="display: none" id="toggleMe">
+        <input type="file" />
       </div>
       <div class="table-responsive">
-        <table class="table table-sm">
+        <table class="table table-hover table-responsive">
           <thead>
             <tr>
-              <th>
-                <label class="checkbox-container">
-                  <input type="checkbox">
-                  <span class="checkmark"></span>
-                </label>
-              </th>
+              <th><input type="checkbox"></th>
+              <th>ID</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Attendance</th>
               <th>Trainer Name</th>
+              <th>Batch Name</th>
+              <th>Location</th>
+              <th>Skill</th>
+              <th>Marketing Start</th>
               <th>Staging Start</th>
-              <th># Interviews</th>
+              <th>Staging End</th>
+              <th>Confirmation Date</th>
+              <th>Project Start Date</th>
+              <th>Client</th>
+              <th>Interviews</th>
+              <th>Repanels</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let associate of associates">
-              <td>
-                <label class="checkbox-container">
-                  <input type="checkbox">
-                  <span class="checkmark"></span>
-                </label>
-              </td>
+            <tr *ngFor="let associate of associates" [ngClass]="{'table-info': associate.selected}">
+              <td><input type="checkbox" (change)="associate.selected = !associate.selected" [checked]="associate.selected"></td>
+              <td>{{associate.id}}</td>
               <td><a routerLink="/associates/{{associate.id}}">{{associate.firstName}}</a></td>
               <td>{{associate.lastName}}</td>
               <td>{{associate.absent}}</td>
               <td>{{associate.trainerName}}</td>
-              <td>{{associate.stagingStartDate}}</td>
+              <td>{{associate.batchName}}</td>
+              <td>{{associate.location}}</td>
+              <td>{{associate.skill}}</td>
+              <td>{{associate.marketingStartDate | date:'shortDate'}}</td>
+              <td>{{associate.stagingStartDate | date:'shortDate'}}</td>
+              <td>{{associate.stagingEndDate | date:'shortDate'}}</td>
+              <td>{{associate.confirmationDate | date:'shortDate'}}</td>
+              <td>{{associate.projectStartDate | date:'shortDate'}}</td>
+              <td>{{associate.clientName}}</td>
               <td>{{associate.numberInterviews}}</td>
+              <td>{{associate.repanelCount}}</td>
             </tr>
           </tbody>
         </table>

@@ -3,8 +3,9 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Associate } from '../models/associate';
 
-const associates: Associate[] = [
+var associates: Associate[] = [
   {
+    selected: false,
     id: 1,
     firstName: "test1",
     lastName: "test1",
@@ -23,6 +24,7 @@ const associates: Associate[] = [
     clientName: "test1"
   },
   {
+    selected: false,
     id: 2,
     firstName: "test2",
     lastName: "test2",
@@ -41,6 +43,29 @@ const associates: Associate[] = [
     clientName: "test2"
   }
 ];
+
+for (let i=3;i<20;i++) {
+  let associate = {
+    selected: false,
+    id: i,
+    firstName: `Person ${i}`,
+    lastName: `Person ${i}`,
+    absent: true,
+    trainerName: `Trainer ${i}`,
+    batchName: `Batch ${i}`,
+    location: "Reston",
+    skill: "Java",
+    marketingStartDate: new Date(),
+    stagingStartDate: new Date(),
+    confirmationDate: new Date(),
+    projectStartDate: new Date(),
+    stagingEndDate: new Date(),
+    numberInterviews: i,
+    repanelCount: i+1,
+    clientName: `Client ${i}`
+  }
+  associates.push(associate);
+}
 
 @Injectable()
 export class AssociateService {

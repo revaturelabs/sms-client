@@ -1,8 +1,17 @@
-<nav class="navbar fixed-top flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Revature</a>
-  <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Sign out</a>
-    </li>
-  </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand pr-3" routerLink="/overview" style="background-color: transparent">
+      <img src="../../../assets/logo.png" alt="Revature" height="30">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLinks" aria-controls="navbarLinks" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarLinks">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" routerLink="/overview">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" routerLink="/reports/attendance">Attendance Reports</a>
+        <a class="nav-item nav-link" routerLink="/reports/status">Status Reports</a>
+      </div>
+    </div>
+  </div>
 </nav>

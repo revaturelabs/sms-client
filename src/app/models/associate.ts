@@ -1,4 +1,5 @@
 export class Associate {
+  public selected: boolean;
   public id: number;
   public firstName: string;
   public lastName: string;
