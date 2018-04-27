@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManagerOverviewComponent } from './manager-overview.component';
+import { MgrOverviewComponent } from './mgr-overview.component';
 
 describe('ManagerOverviewComponent', () => {
-  let component: ManagerOverviewComponent;
-  let fixture: ComponentFixture<ManagerOverviewComponent>;
+  let component: MgrOverviewComponent;
+  let fixture: ComponentFixture<MgrOverviewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManagerOverviewComponent ]
+      declarations: [ MgrOverviewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManagerOverviewComponent);
+    fixture = TestBed.createComponent(MgrOverviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
