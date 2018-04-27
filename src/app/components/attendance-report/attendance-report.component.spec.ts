@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AttendanceReportComponent } from './attendance-report.component';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { ButtonToolbarComponent } from '../button-toolbar/button-toolbar.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AttendanceReportComponent', () => {
   let component: AttendanceReportComponent;
@@ -8,7 +11,8 @@ describe('AttendanceReportComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AttendanceReportComponent ]
+      declarations: [ AttendanceReportComponent, NavbarComponent, ButtonToolbarComponent ],
+      imports: [ RouterTestingModule ]
     })
     .compileComponents();
   }));

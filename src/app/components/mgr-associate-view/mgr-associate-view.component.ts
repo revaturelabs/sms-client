@@ -8,7 +8,7 @@ import { Associate } from '../../models/associate';
 @Component({
   selector: 'app-mgr-associate-view',
   templateUrl: './mgr-associate-view.component.html',
-  styleUrls: ['./mgr-associate-view.component.css']
+  styleUrls: ['./mgr-associate-view.component.css'],
 })
 export class MgrAssociateViewComponent implements OnInit {
 
