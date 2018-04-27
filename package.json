@@ -9,7 +9,6 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    /** test:ci, and lint:ci are used for Travis CI configuration **/
     "test:ci": "ng test --single-run --browsers=ChromeHeadless",
     "lint:ci": "ng lint --fix"
   },
