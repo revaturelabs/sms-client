@@ -72,12 +72,21 @@ export class AssociateService {
 
   constructor() { }
 
+  /**
+  * These service methods should eventually be replaced by AJAX calls to the 
+  * back-end associate microservice
+  */
+
   public getAssociatesInStaging(): Observable<Associate[]> {
     return of(associates);
   }
 
   public getAssociate(id: number): Observable<Associate> {
     return of(associates[id-1]);
+  }
+
+  public updateAssociate(id: number, associate: Associate) {
+    associates[id-1] = associate;
   }
 
 }

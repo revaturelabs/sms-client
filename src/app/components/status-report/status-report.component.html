@@ -5,43 +5,22 @@
     <main role="main" class="col-lg-12">
       <h2>Status Report</h2>
       <div class="mb-2">
-        <app-button-toolbar></app-button-toolbar>
-      </div>
-      <div class="table-responsive">
-        <table class="table table-sm">
-          <thead>
-            <tr>
-              <th>
-                <label class="checkbox-container">
-                  <input type="checkbox">
-                  <span class="checkmark"></span>
-                </label>
-              </th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Attendance</th>
-              <th>Trainer Name</th>
-              <th>Staging Start</th>
-              <th># Interviews</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let associate of associates">
-              <td>
-                <label class="checkbox-container">
-                  <input type="checkbox">
-                  <span class="checkmark"></span>
-                </label>
-              </td>
-              <td><a routerLink="/associates/{{associate.id}}">{{associate.firstName}}</a></td>
-              <td>{{associate.lastName}}</td>
-              <td>{{associate.absent}}</td>
-              <td>{{associate.trainerName}}</td>
-              <td>{{associate.stagingStartDate}}</td>
-              <td>{{associate.numberInterviews}}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="button-group w-25" role="group">
+          <div class="button-group">
+            <button class="btn btn-sm btn-outline-secondary"><i class="far fa-file-pdf"></i> Download as PDF</button>
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+              <span class="far fa-calendar"></span>
+              This week
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item">Today</a>
+                <a class="dropdown-item">This week</a>
+                <a class="dropdown-item">This month</a>
+                <a class="dropdown-item">This quarter</a>
+                <a class="dropdown-item">This year</a>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </div>

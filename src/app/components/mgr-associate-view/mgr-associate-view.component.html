@@ -1,5 +1,117 @@
 <app-navbar></app-navbar>
-<app-sidenav></app-sidenav>
-<p>
-  {{this.associate.id}}
-</p>
+
+<div class="container">
+  <div class="row">
+    <main role="main" class="col-lg-12">
+      <h2>Associate Information</h2>
+      <button type="button" class="btn btn-sm btn-primary" (click)="toggleEditMode()" *ngIf="!editingMode">Edit Fields</button>
+      <button type="button" class="btn btn-sm btn-info" (click)="saveChanges()" *ngIf="editingMode">Save</button>
+      <button type="button" class="btn btn-sm btn-warning" (click)="cancelChanges()" *ngIf="editingMode">Cancel</button>
+      <div class="row my-2">
+        <table class="table table-sm table-hover table-bordered col-lg-6">
+          <thead>
+            <tr>
+              <th class="w-50">Attribute</th>
+              <th class="w-50">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><i class="far fa-id-card"></i> ID</th>
+              <td>{{associate.id}}</td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="far fa-user-circle"></i> Name</th>
+              <td>{{associate.firstName}} {{associate.lastName}}</td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-check"></i> Today's Attendance</th>
+              <td *ngIf="!editingMode && !associate.absent; else elseBlock"><span class="text-success">Present</span></td>
+              <ng-template #elseBlock>
+                <td *ngIf="!editingMode"><span class="text-danger">Absent</span></td>
+              </ng-template>
+              <td *ngIf="editingMode">
+                <select class="form-control form-control-sm" [value]="newAttendance">
+                  <option value="false">Present</option>
+                  <option value="true">Absent</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-bullhorn"></i> Trainer</th>
+              <td>{{associate.trainerName}}</td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-graduation-cap"></i> Batch Name</th>
+              <td>{{associate.batchName}}</td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-map-marker"></i>&ensp;Location</th>
+              <td>{{associate.location}}</td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-tasks"></i> Skill</th>
+              <td>{{associate.skill}}</td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-calendar-alt"></i> Marketing Start Date</th>
+              <td *ngIf="!editingMode">{{associate.marketingStartDate | date:'shortDate'}}</td>
+              <td *ngIf="editingMode">
+                <input type="date" class="form-control form-control-sm" (ngModelChange)="newMarketingStartDate" [ngModel]="newMarketingStartDate">
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-calendar-alt"></i> Staging Start Date</th>
+              <td *ngIf="!editingMode">{{associate.stagingStartDate | date:'shortDate'}}</td>
+              <td *ngIf="editingMode">
+                <input type="date" class="form-control form-control-sm" value="{{associate.stagingStartDate}}">
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-calendar-alt"></i> Staging End Date</th>
+              <td *ngIf="!editingMode">{{associate.stagingEndDate | date:'shortDate'}}</td>
+              <td *ngIf="editingMode">
+                <input type="date" class="form-control form-control-sm" value="{{associate.stagingEndDate}}">
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-calendar-alt"></i> Confirmation Date</th>
+              <td *ngIf="!editingMode">{{associate.confirmationDate | date:'shortDate'}}</td>
+              <td *ngIf="editingMode">
+                <input type="date" class="form-control form-control-sm" value="{{associate.confirmationDate}}">
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-calendar-alt"></i> Project Start Date</th>
+              <td *ngIf="!editingMode">{{associate.projectStartDate | date:'shortDate'}}</td>
+              <td *ngIf="editingMode">
+                <input type="date" class="form-control form-control-sm" value="{{associate.projectStartDate}}">
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-briefcase"></i> Client Name</th>
+              <td *ngIf="!editingMode">{{associate.clientName}}</td>
+              <td *ngIf="editingMode">
+                <input type="text" class="form-control form-control-sm" value="{{associate.clientName}}">
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-comments"></i> Number of Interviews</th>
+              <td *ngIf="!editingMode">{{associate.numberInterviews}}</td>
+              <td *ngIf="editingMode">
+                <input type="number" class="form-control form-control-sm" value="{{associate.numberInterviews}}" min=0>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><i class="fas fa-redo"></i> Number of Repanels</th>
+              <td *ngIf="!editingMode">{{associate.repanelCount}}</td>
+              <td *ngIf="editingMode">
+                <input type="number" class="form-control form-control-sm" value="{{associate.repanelCount}}" min=0>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
