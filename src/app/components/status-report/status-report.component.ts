@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusReportComponent implements OnInit {
 
+  associates = [];
+
   constructor() { }
 
   ngOnInit() {

@@ -1,20 +1,31 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManagerOverviewComponent } from './manager-overview.component';
+import { MgrOverviewComponent } from './mgr-overview.component';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ModalComponent } from '../modal/modal.component';
+import { EditFormComponent } from '../edit-form/edit-form.component';
+import { AssociateService } from '../../services/associate.service';
 
 describe('ManagerOverviewComponent', () => {
-  let component: ManagerOverviewComponent;
-  let fixture: ComponentFixture<ManagerOverviewComponent>;
+  let component: MgrOverviewComponent;
+  let fixture: ComponentFixture<MgrOverviewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManagerOverviewComponent ]
+      declarations: [ 
+        MgrOverviewComponent, 
+        NavbarComponent, 
+        ModalComponent,
+        EditFormComponent ],
+      providers: [ AssociateService ],
+      imports: [ RouterTestingModule ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManagerOverviewComponent);
+    fixture = TestBed.createComponent(MgrOverviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
