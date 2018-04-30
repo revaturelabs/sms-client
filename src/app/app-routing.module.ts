@@ -1,6 +1,6 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent }       from './components/login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { MgrOverviewComponent } from './components/mgr-overview/mgr-overview.component';
 import { MgrAssociateViewComponent } from './components/mgr-associate-view/mgr-associate-view.component';
 import { AttendanceReportComponent } from './components/attendance-report/attendance-report.component';
