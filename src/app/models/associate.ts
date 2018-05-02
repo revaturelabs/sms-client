@@ -1,19 +1,19 @@
 export class Associate {
-  public selected: boolean;
-  public id: number;
-  public firstName: string;
-  public lastName: string;
-  public absent: boolean;
-  public trainerName: string;
-  public batchName: string;
-  public location: string;
-  public skill: string;
-  public marketingStartDate: Date;
-  public stagingStartDate: Date;
-  public confirmationDate: Date;
-  public projectStartDate: Date;
-  public stagingEndDate: Date;
-  public numberInterviews: number;
-  public repanelCount: number;
-  public clientName: string;
+  selected: boolean;
+  id: number;
+  firstName: string;
+  lastName: string;
+  absent: boolean;
+  trainerName: string;
+  batchName: string;
+  location: string;
+  skill: string;
+  marketingStartDate: Date;
+  stagingStartDate: Date;
+  confirmationDate: Date;
+  projectStartDate: Date;
+  stagingEndDate: Date;
+  numberInterviews: number;
+  repanelCount: number;
+  clientName: string;
 }

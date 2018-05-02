@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MgrAssociateViewComponent } from './mgr-associate-view.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AssociateService } from '../../services/associate.service';
+
+class AssociateMockService {
+
+}
 
 describe('MgrAssociateViewComponent', () => {
   let component: MgrAssociateViewComponent;
@@ -8,7 +14,15 @@ describe('MgrAssociateViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MgrAssociateViewComponent ]
+      declarations: [ MgrAssociateViewComponent ],
+      providers: [ 
+        {
+          provide: AssociateService,
+          useClass: AssociateMockService
+        } 
+      ], 
+      imports: [ RouterTestingModule ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));
@@ -16,7 +30,7 @@ describe('MgrAssociateViewComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MgrAssociateViewComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // fixture.detectChanges();
   });
 
   it('should create', () => {

@@ -7,9 +7,10 @@ import { Associate } from '../../models/associate';
   templateUrl: './attendance-report.component.html',
   styleUrls: ['./attendance-report.component.css']
 })
+
 export class AttendanceReportComponent implements OnInit {
-  public reportDuration: string = "This week";
-  public associates: Associate[];
+  reportDuration: string = "This week";
+  associates: Associate[] = [];
 
   constructor(private associateService: AssociateService) { }
 
