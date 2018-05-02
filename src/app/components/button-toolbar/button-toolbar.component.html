@@ -1,23 +1,24 @@
 <div class="btn-toolbar justify-content-between" role="toolbar">
   <div class="input-group w-50">
     <div class="input-group-prepend">
-      <div class="input-group-text" id="btnGroupAddon">Filter:</div>
+      <div class="input-group-text">Filter:</div>
     </div>
     <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="btnGroupAddon">
   </div>
-  <div class="button-group w-25" role="group">
-    <div class="button-group">
-      <button class="btn btn-sm btn-outline-secondary"><i class="far fa-file-pdf"></i> Download as PDF</button>
-      <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
-        <span class="far fa-calendar"></span>
-        This week
-      </button>
-      <div class="dropdown-menu">
-          <a class="dropdown-item">Today</a>
-          <a class="dropdown-item">This week</a>
-          <a class="dropdown-item">This month</a>
-          <a class="dropdown-item">This quarter</a>
-          <a class="dropdown-item">This year</a>
+  <div class="my-2 w-100">
+    <div class="btn-group" role="group">
+      <span class="py-1"><strong>Started Staging: &emsp;</strong></span>
+      <div class="btn-group" role="group">
+        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+          <i class="far fa-calendar"></i>
+          This week
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item">This week</a>
+            <a class="dropdown-item">This month</a>
+            <a class="dropdown-item">This quarter</a>
+            <a class="dropdown-item">This year</a>
+        </div>
       </div>
     </div>
   </div>

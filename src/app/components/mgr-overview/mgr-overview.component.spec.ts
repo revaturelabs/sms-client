@@ -5,19 +5,21 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ModalComponent } from '../modal/modal.component';
 import { EditFormComponent } from '../edit-form/edit-form.component';
+import { ButtonToolbarComponent } from '../button-toolbar/button-toolbar.component';
 import { AssociateService } from '../../services/associate.service';
 
-describe('ManagerOverviewComponent', () => {
+describe('MgrOverviewComponent', () => {
   let component: MgrOverviewComponent;
   let fixture: ComponentFixture<MgrOverviewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
-        MgrOverviewComponent, 
-        NavbarComponent, 
+      declarations: [
+        MgrOverviewComponent,
+        NavbarComponent,
         ModalComponent,
-        EditFormComponent ],
+        EditFormComponent,
+        ButtonToolbarComponent ],
       providers: [ AssociateService ],
       imports: [ RouterTestingModule ]
     })

@@ -5,6 +5,8 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { ButtonToolbarComponent } from '../button-toolbar/button-toolbar.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
+import { AssociateService } from '../../services/associate.service';
+
 describe('AttendanceReportComponent', () => {
   let component: AttendanceReportComponent;
   let fixture: ComponentFixture<AttendanceReportComponent>;
@@ -12,7 +14,8 @@ describe('AttendanceReportComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AttendanceReportComponent, NavbarComponent, ButtonToolbarComponent ],
-      imports: [ RouterTestingModule ]
+      imports: [ RouterTestingModule ],
+      providers: [ AssociateService ]
     })
     .compileComponents();
   }));

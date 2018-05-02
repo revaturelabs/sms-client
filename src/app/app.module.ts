@@ -16,6 +16,7 @@ import { StatusReportComponent } from './components/status-report/status-report.
 import { ButtonToolbarComponent } from './components/button-toolbar/button-toolbar.component';
 import { EditFormComponent } from './components/edit-form/edit-form.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ModalComponent } from './components/modal/modal.component';
     StatusReportComponent,
     ButtonToolbarComponent,
     EditFormComponent,
-    ModalComponent
+    ModalComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

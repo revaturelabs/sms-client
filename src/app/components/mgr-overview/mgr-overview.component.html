@@ -14,8 +14,11 @@
         <button type="button" class="btn btn-sm btn-warning mr-2" data-toggle="modal" data-target="#exampleModal">
           Edit
         </button>
-        <button type="button" class="btn btn-sm btn-primary" (click)="toggleSlide()">
+        <button type="button" class="btn btn-sm btn-primary mr-2" (click)="toggleSlide()">
           Upload Excel File
+        </button>
+        <button type="button" class="btn btn-sm btn-info">
+          <i class="far fa-file-pdf"></i> Download as PDF
         </button>
       </div>
       <div class="mb-2 ml-2" style="display: none" id="toggleMe">
@@ -71,5 +74,7 @@
     </main>
   </div>
 </div>
+
+<app-footer></app-footer>
 
 <app-modal></app-modal>

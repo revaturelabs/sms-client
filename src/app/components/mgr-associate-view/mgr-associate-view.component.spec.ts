@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MgrAssociateViewComponent } from './mgr-associate-view.component';
+import { ButtonToolbarComponent } from '../button-toolbar/button-toolbar.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 import { AssociateService } from '../../services/associate.service';
 
 class AssociateMockService {
@@ -14,14 +16,14 @@ describe('MgrAssociateViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MgrAssociateViewComponent ],
-      providers: [ 
+      declarations: [ MgrAssociateViewComponent, ButtonToolbarComponent ],
+      providers: [
         {
           provide: AssociateService,
           useClass: AssociateMockService
-        } 
-      ], 
-      imports: [ RouterTestingModule ],
+        }
+      ],
+      imports: [ RouterTestingModule, FormsModule ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
