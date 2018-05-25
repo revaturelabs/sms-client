@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 
+/** Imported for Angular Material usage */
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './components/login/login.component';
@@ -17,7 +21,6 @@ import { ButtonToolbarComponent } from './components/button-toolbar/button-toolb
 import { EditFormComponent } from './components/edit-form/edit-form.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { FooterComponent } from './components/footer/footer.component';
-
 
 @NgModule({
   declarations: [
@@ -38,6 +41,8 @@ import { FooterComponent } from './components/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [AssociateService],
   bootstrap: [AppComponent]
