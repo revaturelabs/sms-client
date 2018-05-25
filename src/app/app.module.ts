@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+/** Imported for Angular Material usage */
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './components/login/login.component';
@@ -15,7 +19,6 @@ import { StatusReportComponent } from './components/status-report/status-report.
 import { ButtonToolbarComponent } from './components/button-toolbar/button-toolbar.component';
 import { EditFormComponent } from './components/edit-form/edit-form.component';
 import { ModalComponent } from './components/modal/modal.component';
-
 
 @NgModule({
   declarations: [
@@ -34,6 +37,8 @@ import { ModalComponent } from './components/modal/modal.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [AssociateService],
   bootstrap: [AppComponent]
