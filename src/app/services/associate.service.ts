@@ -3,17 +3,17 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { Associate } from '../models/associate';
 
-var associates: Associate[] = [
+const associates: Associate[] = [
   {
     selected: false,
     id: 1,
-    firstName: "test1",
-    lastName: "test1",
+    firstName: 'test1',
+    lastName: 'test1',
     absent: true,
-    trainerName: "test1",
-    batchName: "test1",
-    location: "test1",
-    skill: "test1",
+    trainerName: 'test1',
+    batchName: 'test1',
+    location: 'test1',
+    skill: 'test1',
     marketingStartDate: new Date(),
     stagingStartDate: new Date(),
     confirmationDate: new Date(),
@@ -21,18 +21,18 @@ var associates: Associate[] = [
     stagingEndDate: new Date(),
     numberInterviews: 1,
     repanelCount: 2,
-    clientName: "test1"
+    clientName: 'test1'
   },
   {
     selected: false,
     id: 2,
-    firstName: "test2",
-    lastName: "test2",
+    firstName: 'test2',
+    lastName: 'test2',
     absent: false,
-    trainerName: "test2",
-    batchName: "test2",
-    location: "test2",
-    skill: "test2",
+    trainerName: 'test2',
+    batchName: 'test2',
+    location: 'test2',
+    skill: 'test2',
     marketingStartDate: new Date(),
     stagingStartDate: new Date(),
     confirmationDate: new Date(),
@@ -40,12 +40,12 @@ var associates: Associate[] = [
     stagingEndDate: new Date(),
     numberInterviews: 1,
     repanelCount: 2,
-    clientName: "test2"
+    clientName: 'test2'
   }
 ];
 
 for (let i=3;i<20;i++) {
-  let associate = {
+  const associate = {
     selected: false,
     id: i,
     firstName: `Person ${i}`,
@@ -53,8 +53,8 @@ for (let i=3;i<20;i++) {
     absent: true,
     trainerName: `Trainer ${i}`,
     batchName: `Batch ${i}`,
-    location: "Reston",
-    skill: "Java",
+    location: 'Reston',
+    skill: 'Java',
     marketingStartDate: new Date(),
     stagingStartDate: new Date(),
     confirmationDate: new Date(),
@@ -63,7 +63,7 @@ for (let i=3;i<20;i++) {
     numberInterviews: i,
     repanelCount: i+1,
     clientName: `Client ${i}`
-  }
+  };
   associates.push(associate);
 }
 
@@ -73,7 +73,7 @@ export class AssociateService {
   constructor() { }
 
   /**
-  * These service methods should eventually be replaced by AJAX calls to the 
+  * These service methods should eventually be replaced by AJAX calls to the
   * back-end associate microservice
   */
 
@@ -87,6 +87,7 @@ export class AssociateService {
 
   public updateAssociate(id: number, associate: Associate) {
     associates[id-1] = associate;
+    return of(associates[id-1]);
   }
 
 }

@@ -29,4 +29,10 @@ describe('AttendanceReportComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should change report duration', () => {
+    const duration = 'this week';
+    component.changeReportDuration(duration);
+    expect(component.reportDuration).toEqual(duration);
+  });
 });

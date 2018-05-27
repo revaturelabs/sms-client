@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AssociateService } from '../../services/associate.service';
 import { Associate } from '../../models/associate';
@@ -14,15 +14,15 @@ import { Associate } from '../../models/associate';
 export class MgrAssociateViewComponent implements OnInit {
 
   public associate: Associate;
-  public editingMode: boolean = false;
+  public editingMode = false;
 
   // new associate properties
   public newAttendance: boolean;
-  public newMarketingStartDate: Date;
-  public newStagingStartDate: Date;
-  public newStagingEndDate: Date;
-  public newConfirmationDate: Date;
-  public newProjectStartDate: Date;
+  public newMarketingStartDate: Date = new Date('2018-01-26');
+  public newStagingStartDate: Date = new Date('2018-01-26');
+  public newStagingEndDate: Date = new Date('2018-01-26');
+  public newConfirmationDate: Date = new Date('2018-01-26');
+  public newProjectStartDate: Date = new Date('2018-01-26');
   public newClientName: string;
   public newNumberInterviews: number;
   public newRepanelCount: number;
@@ -43,17 +43,17 @@ export class MgrAssociateViewComponent implements OnInit {
   }
 
   saveChanges() {
-    console.log("saving changes...");
+    console.log('saving changes...');
     this.saveNewVariables();
     console.log(`New date: ${this.newMarketingStartDate}`);
     console.log(`New date: ${this.associate.marketingStartDate}`);
-    this.toggleEditMode();
+    this.editingMode = false;
     this.associateService.updateAssociate(this.associate.id, this.associate);
   }
 
   cancelChanges() {
     this.resetNewVariables();
-    this.toggleEditMode();
+    this.editingMode = false;
   }
 
   saveNewVariables() {

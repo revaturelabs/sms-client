@@ -9,7 +9,7 @@ describe('ModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         ModalComponent,
         EditFormComponent ]
     })

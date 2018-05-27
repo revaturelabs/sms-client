@@ -11,7 +11,7 @@ describe('StatusReportComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         StatusReportComponent,
         NavbarComponent,
         ButtonToolbarComponent ],

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FooterComponent } from '../footer/footer.component';
 import { AssociateService } from '../../services/associate.service';
 import { Associate } from '../../models/associate';
-import * as $ from 'jquery';
+import * as $ from 'jquery'; 
 
 @Component({
   selector: 'app-mgr-overview',
@@ -29,10 +30,10 @@ export class MgrOverviewComponent implements OnInit {
   }
 
   toggleSlide() {
-    $("#toggleMe").slideToggle();
+    $('#toggleMe').slideToggle();
   }
 
-  doSomething(){
+  doSomething() {
     this.associates[0].selected = !this.associates[0].selected;
   }
 

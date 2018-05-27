@@ -9,7 +9,7 @@ import { Associate } from '../../models/associate';
 })
 
 export class AttendanceReportComponent implements OnInit {
-  reportDuration: string = "This week";
+  reportDuration = 'This week';
   associates: Associate[] = [];
 
   constructor(private associateService: AssociateService) { }
@@ -22,10 +22,10 @@ export class AttendanceReportComponent implements OnInit {
   }
 
   refreshReport() {
-    console.log("refreshing report...");
+    console.log('refreshing report...');
   }
 
-  changeReportDuration(length: string){
+  changeReportDuration(length: string) {
     this.reportDuration = length;
   }
 
