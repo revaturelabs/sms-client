@@ -5,42 +5,57 @@
     <main role="main" class="col-lg-12">
       <h1>Staging Management System</h1>
       <p>
-        Welcome to SMS! Please read our <a href="https://github.com/revaturelabs/sms-client/wiki">documentation</a> to get started
+        Welcome to SMS! Please read our <a target="_blank" href="https://github.com/revaturelabs/sms-client/wiki">documentation</a>
+        to get started.
       </p>
 
       <h2>Overview</h2>
-      <app-button-toolbar></app-button-toolbar>
-      <div class="my-2 ml-2">
-        <button type="button" class="btn btn-sm btn-warning mr-2" data-toggle="modal" data-target="#exampleModal">
-          Edit
+      <div class="my-2 ml-2" role="group">
+        <div class="btn-group mr-2" role="group">
+          <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+            <i class="far fa-calendar"></i>
+            This week
+          </button>
+          <div class="dropdown-menu">
+              <a class="dropdown-item">This week</a>
+              <a class="dropdown-item">This month</a>
+              <a class="dropdown-item">This quarter</a>
+              <a class="dropdown-item">This year</a>
+          </div>
+        </div>
+        <button type="button" class="btn btn-sm btn-info mr-2">
+          <i class="far fa-file-pdf"></i> Download as PDF
         </button>
-        <button type="button" class="btn btn-sm btn-primary mr-2" (click)="toggleSlide()">
-          Upload Excel File
-        </button>
-        <button type="button" class="btn btn-sm btn-info">
+        <button mat-button color="primary">
           <i class="far fa-file-pdf"></i> Download as PDF
         </button>
       </div>
-      <div class="mb-2 ml-2" style="display: none" id="toggleMe">
-        <input type="file" />
-      </div>
-      <table class="table table-hover table-responsive">
+      <p style="color: red">
+        Graphs / stats would appear here. May remove "overview" header.
+      </p>
+      <ul>
+        <li>Avg time for each phase from marketing -> staging -> confirmation -> project start</li>
+        <li>Avg # of interviews (over time? or for each time period: month / quarter / year)</li>
+        <li>Avg # of repanels (over time? or for each time period: month / quarter / year)</li>
+        <li>Avg attendance (per week / month / quarter / year)</li>
+      </ul>
+
+      <h2>Associates</h2>
+      <table class="table table-hover table-responsive table-sm">
         <thead class="thead-light">
           <tr>
-            <th><input type="checkbox"></th>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <!-- <th>ID</th> -->
+            <th>Name</th>
             <th>Attendance</th>
             <th>Trainer Name</th>
             <th>Batch Name</th>
-            <th>Location</th>
-            <th>Skill</th>
+            <!-- <th>Location</th> -->
+            <!-- <th>Skill</th> -->
             <th>Marketing Start</th>
             <th>Staging Start</th>
             <th>Staging End</th>
             <th>Confirmation Date</th>
-            <th>Project Start Date</th>
+            <th>Project Start</th>
             <th>Client</th>
             <th>Interviews</th>
             <th>Repanels</th>
@@ -48,26 +63,24 @@
         </thead>
         <tbody>
           <tr *ngFor="let associate of associates" [ngClass]="{'table-info': associate.selected}">
-            <td><input type="checkbox" (change)="associate.selected = !associate.selected" [checked]="associate.selected"></td>
-            <td><a routerLink="/associates/{{associate.id}}">{{associate.id}}</a></td>
-            <td>{{associate.firstName}}</td>
-            <td>{{associate.lastName}}</td>
+            <!-- <td><a routerLink="/associates/{{associate.id}}">{{associate.id}}</a></td> -->
+            <td><a routerLink="/associates/{{associate.id}}">{{associate.firstName}} {{associate.lastName}}</a></td>
             <td *ngIf="!associate.absent; else elseBlock"><span class="text-success">Present</span></td>
             <ng-template #elseBlock>
               <td><span class="text-danger">Absent</span></td>
             </ng-template>
             <td>{{associate.trainerName}}</td>
             <td>{{associate.batchName}}</td>
-            <td>{{associate.location}}</td>
-            <td>{{associate.skill}}</td>
+            <!-- <td>{{associate.location}}</td> -->
+            <!-- <td>{{associate.skill}}</td> -->
             <td>{{associate.marketingStartDate | date:'shortDate'}}</td>
             <td>{{associate.stagingStartDate | date:'shortDate'}}</td>
             <td>{{associate.stagingEndDate | date:'shortDate'}}</td>
             <td>{{associate.confirmationDate | date:'shortDate'}}</td>
             <td>{{associate.projectStartDate | date:'shortDate'}}</td>
             <td>{{associate.clientName}}</td>
-            <td>{{associate.numberInterviews}}</td>
-            <td>{{associate.repanelCount}}</td>
+            <td class="text-center">{{associate.numberInterviews}}</td>
+            <td class="text-center">{{associate.repanelCount}}</td>
           </tr>
         </tbody>
       </table>

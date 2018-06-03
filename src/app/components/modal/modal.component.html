@@ -1,18 +1,20 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="{{bootstrapId}}" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Associates</h5>
+      <div class="modal-header" *ngIf="titleText">
+        <h5 class="modal-title" id="modal-{{type}}">{{titleText}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <app-edit-form></app-edit-form>
+        <div #container></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" *ngIf="this.type === 'edit'">Save changes</button>
+        <button type="button" class="btn btn-primary" *ngIf="this.type === 'add'">Add Associate</button>
+        <button type="button" class="btn btn-danger" *ngIf="this.type === 'remove'">Remove</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>

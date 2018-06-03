@@ -14,3 +14,9 @@ body {
 main {
   padding-top: 48px; /* Space for fixed navbar */
 }
+
+/* MUST HAVE THIS FOR DISPLAYING ANGULAR MATERIAL SELECT DROPDOWNS IN MODALS */
+.cdk-overlay-container,
+.cdk-overlay-container * {
+  z-index: 5000 !important;
+}

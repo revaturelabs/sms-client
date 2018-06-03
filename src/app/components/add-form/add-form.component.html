@@ -1,0 +1,66 @@
+<form>
+  <div class="form-group">
+    <mat-form-field>
+      <input matInput type="text" name="firstName" value="" placeholder="First name"/>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <input matInput type="text" name="lastName" value="" placeholder="Last name"/>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <mat-select name="batch" [(ngModel)]="selectedBatch" placeholder="Batch name" required>
+        <mat-option *ngFor="let batch of batches" [value]="batch">
+          {{batch.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="form-group" *ngIf="selectedBatch">
+    <mat-form-field>
+      <input matInput type="text" name="trainer" [value]="selectedBatch.trainer" placeholder="Trainer" readonly/>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <mat-form-field>
+      <input matInput type="text" name="client" [(ngModel)]="client" placeholder="Client"/>
+    </mat-form-field>
+  </div>
+  <div class="form-group">
+    <label for="attendance">Today's attendance</label>
+    <select class="form-control" id="attendance">
+      <option>Present</option>
+      <option>Absent</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="stagingStartDate">Staging start date</label>
+    <input type="date" class="form-control" id="stagingStartDate" />
+  </div>
+  <div class="form-group">
+    <label for="stagingEndDate">Staging end date</label>
+    <input type="date" class="form-control" id="stagingEndDate" />
+  </div>
+  <div class="form-group">
+    <label for="marketingStartDate">Marketing start date</label>
+    <input type="date" class="form-control" id="marketingStartDate" />
+  </div>
+  <div class="form-group">
+    <label for="confirmationDate">Confirmation date</label>
+    <input type="date" class="form-control" id="confirmationDate" />
+  </div>
+  <div class="form-group">
+    <label for="projectStartDate">Project start date</label>
+    <input type="date" class="form-control" id="projectStartDate" />
+  </div>
+  <div class="form-group">
+    <label for="interviews">Set Number of Interviews</label>
+    <input type="number" min=0 value=0 class="form-control" id="interviews">
+  </div>
+  <div class="form-group">
+    <label for="repanels">Set Number of Re-panels</label>
+    <input type="number" min=0 value=0 class="form-control" id="repanels">
+  </div>
+</form>

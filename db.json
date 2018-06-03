@@ -1,0 +1,110 @@
+{
+  "associates": [
+    {
+      "selected": false,
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "absent": false,
+      "trainerName": "Ryan",
+      "batchName": "1804Apr04JTA",
+      "location": "Reston",
+      "skill": "JTA",
+      "marketingStartDate": null,
+      "stagingStartDate": "05/31/2018",
+      "confirmationDate": null,
+      "projectStartDate": null,
+      "stagingEndDate": null,
+      "numberInterviews": 1,
+      "repanelCount": 2,
+      "clientName": null
+    },
+    {
+      "selected": false,
+      "id": 2,
+      "firstName": "Adam",
+      "lastName": "Smith",
+      "absent": false,
+      "trainerName": "Ryan",
+      "batchName": "1804Apr04JTA",
+      "location": "Reston",
+      "skill": "JTA",
+      "marketingStartDate": null,
+      "stagingStartDate": "05/31/2018",
+      "confirmationDate": null,
+      "projectStartDate": null,
+      "stagingEndDate": null,
+      "numberInterviews": 1,
+      "repanelCount": 2,
+      "clientName": null
+    },
+    {
+      "selected": false,
+      "id": 3,
+      "firstName": "Bob",
+      "lastName": "Dylan",
+      "absent": false,
+      "trainerName": "Mehrab",
+      "batchName": "1803Mar12Java",
+      "location": "Reston",
+      "skill": "Java",
+      "marketingStartDate": "04/20/2018",
+      "stagingStartDate": "05/01/2018",
+      "confirmationDate": "05/10/2018",
+      "projectStartDate": "05/31/2018",
+      "stagingEndDate": "05/15/2018",
+      "numberInterviews": 2,
+      "repanelCount": 1,
+      "clientName": "InfoSys"
+    }
+  ],
+  "trainers": [
+    "Ryan",
+    "Mehrab",
+    "Yuvi",
+    "William",
+    "Peter",
+    "Richard",
+    "Nick E.",
+    "Nick J.",
+    "Genesis",
+    "Steve",
+    "Matt",
+    "Wezley",
+    "Blake",
+    "Mitch",
+    "Emily",
+    "Carolyn"
+  ],
+  "batches": [
+    {
+      "name": "1804Apr04JTA",
+      "location": "Reston",
+      "skill": "JTA",
+      "trainerId": 3,
+      "startDate": null,
+      "endDate": null
+    },
+    {
+      "name": "1804Apr04JTA",
+      "location": "Reston",
+      "skill": "JTA",
+      "trainerId": 3,
+      "startDate": null,
+      "endDate": null
+    },
+    {
+      "name": "1803Mar12Java",
+      "location": "Reston",
+      "skill": "Java",
+      "trainerId": 3,
+      "startDate": null,
+      "endDate": null
+    }
+  ],
+  "clients": [
+    { "id": 1, "name": "InfoSys" },
+    { "id": 2, "name": "Cognizant" },
+    { "id": 3, "name": "Accenture Federal Services (AFS)" }
+  ]
+}

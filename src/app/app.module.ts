@@ -21,6 +21,9 @@ import { ButtonToolbarComponent } from './components/button-toolbar/button-toolb
 import { EditFormComponent } from './components/edit-form/edit-form.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MgrManageAssociatesComponent } from './components/mgr-manage-associates/mgr-manage-associates.component';
+import { AddFormComponent } from './components/add-form/add-form.component';
+import { RemoveAlertComponent } from './components/remove-alert/remove-alert.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { FooterComponent } from './components/footer/footer.component';
     ButtonToolbarComponent,
     EditFormComponent,
     ModalComponent,
-    FooterComponent
+    FooterComponent,
+    MgrManageAssociatesComponent,
+    AddFormComponent,
+    RemoveAlertComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +49,11 @@ import { FooterComponent } from './components/footer/footer.component';
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule
+  ],
+  entryComponents: [
+    EditFormComponent,
+    AddFormComponent,
+    RemoveAlertComponent
   ],
   providers: [AssociateService],
   bootstrap: [AppComponent]
