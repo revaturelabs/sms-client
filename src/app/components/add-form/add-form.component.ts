@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Batch } from '../../models/batch';
+import { BatchService } from '../../services/batch.service';
+import { AssociateService } from '../../services/associate.service';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs/observable/of';
 
 @Component({
   selector: 'app-add-form',
@@ -8,23 +13,23 @@ import { Component, OnInit } from '@angular/core';
 export class AddFormComponent implements OnInit {
   firstName: string;
   lastName: string;
-  selectedBatch: any;
+  selectedBatch: Batch;
 
-  batches = [
-    {
-      "name": "1712Dec11JTA",
-      "trainer": "Yuvi"
-    },
-    {
-      "name": "1803Mar05Java",
-      "trainer": "Ryan"
-    }
-  ];
+  batches: Observable<Batch[]>;
 
-
-  constructor() { }
+  constructor(private batchService: BatchService) { }
 
   ngOnInit() {
+    this.batchService.getCurrentBatches().subscribe((batches) => {
+      console.log(batches);
+      this.batches = of(batches);
+    });
   }
+
+  // addAssociate(associate: Associate) {
+  //   this.associateService.addNewAssociate(associate).subscribe((newAssociate: Associate) => {
+  //     this.associates.push(associate);
+  //   });
+  // }
 
 }

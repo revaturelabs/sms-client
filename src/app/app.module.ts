@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 /** Imported for Angular Material usage */
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +14,10 @@ import { MgrOverviewComponent } from './components/mgr-overview/mgr-overview.com
 import { MgrAssociateViewComponent } from './components/mgr-associate-view/mgr-associate-view.component';
 
 import { AssociateService } from './services/associate.service';
+import { BatchService } from './services/batch.service';
+import { ClientService } from './services/client.service';
+import { TrainerService } from './services/trainer.service';
+
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AttendanceReportComponent } from './components/attendance-report/attendance-report.component';
@@ -48,14 +53,20 @@ import { RemoveAlertComponent } from './components/remove-alert/remove-alert.com
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   entryComponents: [
     EditFormComponent,
     AddFormComponent,
     RemoveAlertComponent
   ],
-  providers: [AssociateService],
+  providers: [
+    AssociateService,
+    BatchService,
+    TrainerService,
+    ClientService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

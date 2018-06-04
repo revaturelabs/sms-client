@@ -48,7 +48,7 @@ export class MgrAssociateViewComponent implements OnInit {
     console.log(`New date: ${this.newMarketingStartDate}`);
     console.log(`New date: ${this.associate.marketingStartDate}`);
     this.editingMode = false;
-    this.associateService.updateAssociate(this.associate.id, this.associate);
+    this.associateService.updateAssociate(this.associate);
   }
 
   cancelChanges() {

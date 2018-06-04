@@ -48,7 +48,29 @@ export class MgrManageAssociatesComponent implements OnInit {
     $('#toggleMe').slideToggle();
   }
 
-  selectAssociate(associate) {
+  addAssociate(associate: Associate) {
+    this.associateService.addNewAssociate(associate).subscribe((newAssociate: Associate) => {
+      this.associates.push(associate);
+    });
+  }
+
+  updateAssociate(associate: Associate) {
+    this.associateService.updateAssociate(associate).subscribe((updatedAssociate: Associate) => {
+      for (let i = 0; i < this.associates.length; i++) {
+        // search for and update existing associate
+        if (this.associates[i].id == updatedAssociate.id)
+          this.associates[i] = updatedAssociate;
+      }
+    });
+  }
+
+  deleteAssociate(id: number) {
+    this.associateService.deleteAssociate(id).subscribe(() => {
+      this.associates.splice(id,1);
+    });
+  }
+
+  selectAssociate(associate: Associate) {
     associate.selected = !associate.selected;
     this.resolveAtLeastOneSelected();
   }

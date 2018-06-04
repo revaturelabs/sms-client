@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { _throw } from 'rxjs/observable/throw';
 import { catchError, retry } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Associate } from '../models/associate';
 import { environment } from '../../environments/environment';
 
 const httpOptions = {
@@ -13,8 +12,8 @@ const httpOptions = {
 };
 
 @Injectable()
-export class AssociateService {
-  private associateURI: string = environment.baseApiUrl + environment.apiUrls.associates;
+export class ClientService {
+  private clientURI: string = environment.baseApiUrl + environment.apiUrls.clients;
 
   constructor(private http: HttpClient) { }
 
@@ -33,35 +32,19 @@ export class AssociateService {
     return _throw('Something went wrong - please try again');
   };
 
-  public getAssociatesInStaging(): Observable<Associate[]> {
-    return this.http.get<Associate[]>(this.associateURI)
+  public getAllClients() {
+    return this.http.get(this.clientURI)
       .pipe(
         retry(3), // retry up to 3 times if call fails
         catchError(this.handleError) // then handle error
       );
   }
 
-  public getAssociate(id: number): Observable<Associate> {
-    return this.http.get<Associate>(`${this.associateURI}/${id}`)
+  public getClient(id: number) {
+    return this.http.get(`${this.clientURI}/${id}`)
       .pipe(
         retry(3),
         catchError(this.handleError)
       );
   }
-
-  public addNewAssociate(associate: Associate): Observable<Associate> {
-    return this.http.post<Associate>(`${this.associateURI}`, associate, httpOptions)
-      .pipe(catchError(this.handleError));
-  }
-
-  public updateAssociate(associate: Associate): Observable<Associate> {
-    return this.http.put<Associate>(`${this.associateURI}/${associate.id}`, associate, httpOptions)
-      .pipe(catchError(this.handleError));
-  }
-
-  public deleteAssociate(id: number): Observable<{}> {
-    return this.http.delete(`${this.associateURI}/${id}`, httpOptions)
-      .pipe(catchError(this.handleError));
-  }
-
 }
