@@ -56,7 +56,7 @@ describe('AssociateService', () => {
         repanelCount: 6,
         clientName: 'testClientName'
       };
-      service.updateAssociate(id, updatedAssociate).subscribe(newAssociate => {
+      service.updateAssociate(updatedAssociate).subscribe(newAssociate => {
         expect(newAssociate).toBeTruthy();
         expect(newAssociate.selected).not.toEqual(associate.selected);
         expect(newAssociate.id).toEqual(updatedAssociate.id);

@@ -1,3 +1,4 @@
+import * as bootstrap from "bootstrap";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +23,6 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AttendanceReportComponent } from './components/attendance-report/attendance-report.component';
 import { StatusReportComponent } from './components/status-report/status-report.component';
-import { ButtonToolbarComponent } from './components/button-toolbar/button-toolbar.component';
 import { EditFormComponent } from './components/edit-form/edit-form.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -40,7 +40,6 @@ import { RemoveAlertComponent } from './components/remove-alert/remove-alert.com
     NavbarComponent,
     AttendanceReportComponent,
     StatusReportComponent,
-    ButtonToolbarComponent,
     EditFormComponent,
     ModalComponent,
     FooterComponent,

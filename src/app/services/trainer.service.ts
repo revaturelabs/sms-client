@@ -32,7 +32,7 @@ export class TrainerService {
     return _throw('Something went wrong - please try again');
   };
 
-  public getAllClients() {
+  public getAllTrainers() {
     return this.http.get(this.trainerURI)
       .pipe(
         retry(3), // retry up to 3 times if call fails
@@ -40,7 +40,7 @@ export class TrainerService {
       );
   }
 
-  public getClient(id: number) {
+  public getTrainer(id: number) {
     return this.http.get(`${this.trainerURI}/${id}`)
       .pipe(
         retry(3),

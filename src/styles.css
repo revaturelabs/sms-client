@@ -11,6 +11,10 @@ body {
   font-size: .875rem;
 }
 
+#outside-container {
+  min-height: 100vh;
+}
+
 main {
   padding-top: 48px; /* Space for fixed navbar */
 }

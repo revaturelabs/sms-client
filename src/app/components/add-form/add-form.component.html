@@ -1,66 +1,112 @@
-<form>
-  <div class="form-group">
-    <mat-form-field>
-      <input matInput type="text" name="firstName" value="" placeholder="First name"/>
-    </mat-form-field>
+<div class="modal fade" id="add-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Associate</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <mat-form-field>
+              <input matInput type="text" [(ngModel)]="associate.firstName" name="firstName" value="" placeholder="First name"/>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <input matInput type="text" [(ngModel)]="associate.lastName" name="lastName" value="" placeholder="Last name"/>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <mat-select name="batch" [(ngModel)]="selectedBatch" placeholder="Batch" required>
+                <mat-option *ngFor="let batch of batches" [value]="batch">
+                  {{batch.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group" *ngIf="selectedBatch">
+            <mat-form-field>
+              <input matInput type="text" [(ngModel)]="selectedBatch.location" name="lastName" value="" placeholder="Location" readonly/>
+            </mat-form-field>
+          </div>
+          <div class="form-group" *ngIf="selectedBatch">
+            <mat-form-field>
+              <input matInput type="text" name="trainer" [value]="selectedBatch.trainer" placeholder="Trainer" readonly/>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <mat-select name="clients" [(ngModel)]="associate.clientName" placeholder="Client">
+                <mat-option name="client" *ngFor="let client of clients" [value]="client.name">
+                  {{client.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <label for="attendance">Today's attendance</label>
+            <select class="form-control" id="attendance">
+              <option>Present</option>
+              <option>Absent</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="stagingStartDate">Staging start date</label>
+            <input type="date"
+              [ngModel]="associate.stagingStartDate | date:'yyyy-MM-dd'"
+              (ngModelChange)="associate.stagingStartDate = $event"
+              class="form-control" id="stagingStartDate" />
+          </div>
+          <div class="form-group">
+            <label for="stagingEndDate">Staging end date</label>
+            <input type="date"
+              [ngModel]="associate.stagingEndDate | date:'yyyy-MM-dd'"
+              (ngModelChange)="associate.stagingEndDate = $event"
+              class="form-control" id="stagingEndDate" />
+          </div>
+          <div class="form-group">
+            <label for="marketingStartDate">Marketing start date</label>
+            <input type="date"
+              [ngModel]="associate.marketingStartDate | date:'yyyy-MM-dd'"
+              (ngModelChange)="associate.marketingStartDate = $event"
+              class="form-control" id="marketingStartDate" />
+          </div>
+          <div class="form-group">
+            <label for="confirmationDate">Confirmation date</label>
+            <input type="date"
+              [ngModel]="associate.confirmationDate | date:'yyyy-MM-dd'"
+              (ngModelChange)="associate.confirmationDate = $event"
+              class="form-control" id="confirmationDate" />
+          </div>
+          <div class="form-group">
+            <label for="projectStartDate">Project start date</label>
+            <input type="date"
+              [ngModel]="associate.projectStartDate | date:'yyyy-MM-dd'"
+              (ngModelChange)="associate.projectStartDate = $event"
+              class="form-control" id="projectStartDate" />
+          </div>
+          <div class="form-group">
+            <label for="interviews">Set Number of Interviews</label>
+            <input type="number"
+              [(ngModel)]="associate.numberInterviews" min=0 value=0
+              class="form-control" id="interviews"/>
+          </div>
+          <div class="form-group">
+            <label for="repanels">Set Number of Re-panels</label>
+            <input type="number"
+              [(ngModel)]="associate.repanelCount" min=0 value=0
+              class="form-control" id="repanels"/>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" name="btn-add" (click)="addAssociate()">Add Associate</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <mat-form-field>
-      <input matInput type="text" name="lastName" value="" placeholder="Last name"/>
-    </mat-form-field>
-  </div>
-  <div class="form-group">
-    <mat-form-field>
-      <mat-select name="batch" [(ngModel)]="selectedBatch" placeholder="Batch" required>
-        <mat-option *ngFor="let batch of batches | async" [value]="batch">
-          {{batch.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div class="form-group" *ngIf="selectedBatch">
-    <mat-form-field>
-      <input matInput type="text" name="trainer" [value]="selectedBatch.trainer" placeholder="Trainer" readonly/>
-    </mat-form-field>
-  </div>
-  <div class="form-group">
-    <mat-form-field>
-      <input matInput type="text" name="client" [(ngModel)]="client" placeholder="Client"/>
-    </mat-form-field>
-  </div>
-  <div class="form-group">
-    <label for="attendance">Today's attendance</label>
-    <select class="form-control" id="attendance">
-      <option>Present</option>
-      <option>Absent</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="stagingStartDate">Staging start date</label>
-    <input type="date" class="form-control" id="stagingStartDate" />
-  </div>
-  <div class="form-group">
-    <label for="stagingEndDate">Staging end date</label>
-    <input type="date" class="form-control" id="stagingEndDate" />
-  </div>
-  <div class="form-group">
-    <label for="marketingStartDate">Marketing start date</label>
-    <input type="date" class="form-control" id="marketingStartDate" />
-  </div>
-  <div class="form-group">
-    <label for="confirmationDate">Confirmation date</label>
-    <input type="date" class="form-control" id="confirmationDate" />
-  </div>
-  <div class="form-group">
-    <label for="projectStartDate">Project start date</label>
-    <input type="date" class="form-control" id="projectStartDate" />
-  </div>
-  <div class="form-group">
-    <label for="interviews">Set Number of Interviews</label>
-    <input type="number" min=0 value=0 class="form-control" id="interviews">
-  </div>
-  <div class="form-group">
-    <label for="repanels">Set Number of Re-panels</label>
-    <input type="number" min=0 value=0 class="form-control" id="repanels">
-  </div>
-</form>
+</div>

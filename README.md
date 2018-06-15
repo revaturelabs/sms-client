@@ -1,10 +1,33 @@
 # Angular Client for Staging Management System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+This project was built with the following libraries:
+* [Angular 5](https://github.com/angular/angular-cli)
+* [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+* [Bootstrap](http://getbootstrap.com)
+* [Angular Material Design](https://material.angular.io/)
+* [jQuery](http://jquery.com)
+* [fontawesome](http://fontawesome.com)
 
-## Development server
+**Libraries for development**
+* [json-server](https://github.com/typicode/json-server)
+* [concurrently](https://www.npmjs.com/package/concurrently)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Development setup
+
+To set up a development server locally, first clone this repo:
+```
+git clone https://github.com/revaturelabs/sms-client.git
+```
+Then install dependencies:
+```
+cd sms-client
+npm install
+```
+Use the npm script to start both the dev json-server (the mock back-end) and the angular server:
+```
+npm run start:both
+```
+The json-server will use the `db/db.js` file to generate mock data for the Angular application to consume.
 
 ## Code scaffolding
 

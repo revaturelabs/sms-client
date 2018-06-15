@@ -3,7 +3,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { NavbarComponent } from '../navbar/navbar.component';
-import { ButtonToolbarComponent } from '../button-toolbar/button-toolbar.component';
 import { ModalComponent } from '../modal/modal.component';
 import { EditFormComponent } from '../edit-form/edit-form.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -22,7 +21,6 @@ describe('MgrManageAssociatesComponent', () => {
         NavbarComponent,
         ModalComponent,
         EditFormComponent,
-        ButtonToolbarComponent,
         FooterComponent
       ],
       providers: [ AssociateService ],

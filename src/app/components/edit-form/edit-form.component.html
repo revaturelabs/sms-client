@@ -1,37 +1,55 @@
-<form>
-  <div class="form-group">
-    <label for="attendance">Set today's attendance</label>
-    <select class="form-control" id="attendance">
-      <option>Present</option>
-      <option>Absent</option>
-    </select>
+<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" *ngIf="titleText">
+        <h5 class="modal-title">Edit Associates</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="attendance">Set today's attendance</label>
+            <select class="form-control" id="attendance">
+              <option>Present</option>
+              <option>Absent</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="stagingStartDate">Staging start date</label>
+            <input type="date" class="form-control" id="stagingStartDate" />
+          </div>
+          <div class="form-group">
+            <label for="stagingEndDate">Staging end date</label>
+            <input type="date" class="form-control" id="stagingEndDate" />
+          </div>
+          <div class="form-group">
+            <label for="marketingStartDate">Marketing start date</label>
+            <input type="date" class="form-control" id="marketingStartDate" />
+          </div>
+          <div class="form-group">
+            <label for="confirmationDate">Confirmation date</label>
+            <input type="date" class="form-control" id="confirmationDate" />
+          </div>
+          <div class="form-group">
+            <label for="projectStartDate">Project start date</label>
+            <input type="date" class="form-control" id="projectStartDate" />
+          </div>
+          <div class="form-group">
+            <label for="interviews">Set Number of Interviews</label>
+            <input type="number" min=0 class="form-control" id="interviews">
+          </div>
+          <div class="form-group">
+            <label for="repanels">Set Number of Re-panels</label>
+            <input type="number" min=0 class="form-control" id="repanels">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" (click)="updateAssociates()" name="btn-edit">Update Associates</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="stagingStartDate">Staging start date</label>
-    <input type="date" class="form-control" id="stagingStartDate" />
-  </div>
-  <div class="form-group">
-    <label for="stagingEndDate">Staging end date</label>
-    <input type="date" class="form-control" id="stagingEndDate" />
-  </div>
-  <div class="form-group">
-    <label for="marketingStartDate">Marketing start date</label>
-    <input type="date" class="form-control" id="marketingStartDate" />
-  </div>
-  <div class="form-group">
-    <label for="confirmationDate">Confirmation date</label>
-    <input type="date" class="form-control" id="confirmationDate" />
-  </div>
-  <div class="form-group">
-    <label for="projectStartDate">Project start date</label>
-    <input type="date" class="form-control" id="projectStartDate" />
-  </div>
-  <div class="form-group">
-    <label for="interviews">Set Number of Interviews</label>
-    <input type="number" min=0 class="form-control" id="interviews">
-  </div>
-  <div class="form-group">
-    <label for="repanels">Set Number of Re-panels</label>
-    <input type="number" min=0 class="form-control" id="repanels">
-  </div>
-</form>
+</div>

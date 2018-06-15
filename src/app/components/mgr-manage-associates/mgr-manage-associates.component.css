@@ -7,7 +7,14 @@ table th {
   text-align: center;
 }
 
-table td:first-child,
-table th:first-child {
+/* align names left */
+table td:nth-child(2),
+table th:nth-child(2) {
   text-align: left;
+}
+
+.filter-container {
+  border: 2px solid grey;
+  padding-left: 10px;
+  padding-right: 10px
 }
